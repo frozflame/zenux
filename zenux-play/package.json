@@ -1,8 +1,8 @@
 {
-  "name": "zenux-timer",
+  "name": "zenux-play",
   "version": "0.1.0",
   "description": "",
-  "main": "timer.js",
+  "main": "play.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,5 +1,6 @@
 /* globals module */
 /* globals require */
+/* globals __dirname */
 
 
 var path = require('path');
