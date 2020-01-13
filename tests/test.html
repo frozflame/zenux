@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="vapp">
+    <h1>{{ cursor }}</h1>
+    <button id="prev" :disabled="cursor.first()" v-on:click="cursor.prev()">Prev</button>
+    <button id="next" :disabled="cursor.last()" v-on:click="cursor.next()">Next</button>
+</div>
+
+<script src="http://localhost/local/js/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="zenux_cursor.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#vapp',
+        data: {
+            cursor: new zenux_cursor.Cursor(1, 5)
+        }
+    });
+</script>
+</body>
+</html>
