@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         filename: 'zenux_play.min.js',
-        path: path.resolve(__dirname, '../_test'),
+        path: path.resolve(__dirname, '../tests'),
         library: 'zenux_play'
     }
 };

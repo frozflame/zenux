@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         filename: 'zenux_cursor.min.js',
-        path: path.resolve(__dirname, '../_test'),
+        path: path.resolve(__dirname, '../tests'),
         library: 'zenux_cursor'
     }
 };
