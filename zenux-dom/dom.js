@@ -18,9 +18,6 @@ function HTMLEscaper() {
 }
 
 
-var _htmlEscaper = new HTMLEscaper();
-
-
 function createElement(name, attrs, children) {
     var elem = document.createElement(name);
     Object.entries(attrs).forEach(function (entry) {
@@ -31,10 +28,7 @@ function createElement(name, attrs, children) {
     });
 }
 
-function urlToElement(url) {
-    // TODO: parse url i.s.o. regex
-    var anchor = document.createElement('a');
-    anchor.href = url;
+function anchorToElement(anchor) {
     if (/.*\.js$/.test(anchor.pathname)) {
         return createElement('script', {src: url, type: 'text/javascript'}, []);
     }
@@ -43,6 +37,13 @@ function urlToElement(url) {
     }
 }
 
+function urlToElement(url) {
+    var anchor = document.createElement('a');
+    anchor.href = url;
+    return anchorToElement(anchor);
+}
+
 
 exports.HTMLEscaper = HTMLEscaper;
+exports.anchorToElement = anchorToElement;
 exports.urlToElement = urlToElement;
