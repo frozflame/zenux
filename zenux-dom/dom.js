@@ -9,7 +9,7 @@ var $ = require('jquery');
 
 
 function bodyToDiv(html){
-    var bodyContent = /<body[^>]*>(.*?)<\/body>/ims.exec(html)[1];
+    var bodyContent = /<body[^>]*>([\s\S]*?)<\/body>/im.exec(html)[1];
     var div = document.createElement('div');
     div.innerHTML = bodyContent;
     return div
@@ -64,7 +64,7 @@ function pageToElements(html, urlbase, selector, attrname) {
     var anchors = $(html).find(selector || 'a').toArray();
     return anchors.map(function (anc) {
         // Notice: anchor.href is different from anchor.getAttribute('href')
-        return zenux_dom.urlToElement(
+        return urlToElement(
             anc.getAttribute(attrname || 'href'), urlbase);
     });
 }
