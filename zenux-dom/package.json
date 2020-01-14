@@ -1,8 +1,8 @@
 {
-  "name": "zenux-textual",
+  "name": "zenux-dom",
   "version": "0.1.0",
   "description": "",
-  "main": "textual.js",
+  "main": "dom.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

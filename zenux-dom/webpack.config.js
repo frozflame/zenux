@@ -7,13 +7,13 @@ var path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: './textual.js',
+    entry: './dom.js',
     resolve: {
         modules: ["node_modules"],
     },
     output: {
-        filename: 'zenux_textual.min.js',
+        filename: 'zenux_dom.min.js',
         path: path.resolve(__dirname, '../min'),
-        library: 'zenux_textual'
+        library: 'zenux_dom'
     }
 };
