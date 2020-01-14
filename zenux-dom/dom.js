@@ -30,10 +30,10 @@ function createElement(name, attrs, children) {
 
 function anchorToElement(anchor) {
     if (/.*\.js$/.test(anchor.pathname)) {
-        return createElement('script', {src: url, type: 'text/javascript'}, []);
+        return createElement('script', {src: anchor.href, type: 'text/javascript'}, []);
     }
     if (/.*\.css$/.test(anchor.pathname)) {
-        return createElement('link', {href: url, rel: 'stylesheet', type: 'text/css'}, []);
+        return createElement('link', {href: anchor.href, rel: 'stylesheet', type: 'text/css'}, []);
     }
 }
 
