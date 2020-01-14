@@ -1,0 +1,34 @@
+
+Arrow Function
+    - introduced in ES6
+    - with arrow functions there are no binding of `this`
+    - supported since 2013 ~ 2016
+
+Array
+    - Array.map(): array-likes returned by $() behave differently
+    - $(..).toArray() or $(..).get()
+    - Object.entries: Python dict.items()
+    - Array.concat(): returning new array, not an in-place operation
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+    -
+
+RegExp
+    - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+    - dot-all flag `s` added in ES2018, not yet supported in Firefox; use [\s\S] or equiv.
+    - common flags: gim
+    - /reg/.exec():	Tests for a match in a string. Returns the first match
+    - /reg/.test():	Tests for a match in a string. Returns true or false
+    - /reg/.compile():	Deprecated
+
+
+npm version
+    https://flaviocopes.com/npm-semantic-versioning/
+    ^: if you write ^0.13.0 when running npm update it can update to patch and minor releases: 0.13.1, 0.14.0 and so on.
+    ~: if you write ~0.13.0, when running npm update it can update to patch releases: 0.13.1 is ok, but 0.14.0 is not.
+    >: you accept any version higher than the one you specify
+    >=: you accept any version equal to or higher than the one you specify
+    <=: you accept any version equal or lower to the one you specify
+    <: you accept any version lower to the one you specify
+    =: you accept that exact version
+    -: you accept a range of versions. Example: 2.1.0 - 2.6.2
+    ||: you combine sets. Example: < 2.1 || > 2.6
