@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         filename: 'zenux_timer.min.js',
-        path: path.resolve(__dirname, '../tests'),
+        path: path.resolve(__dirname, '../min'),
         library: 'zenux_timer'
     }
 };

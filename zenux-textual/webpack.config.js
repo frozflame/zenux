@@ -2,17 +2,18 @@
 /* globals require */
 /* globals __dirname */
 
+
 var path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: './cursor.js',
+    entry: './textual.js',
     resolve: {
         modules: ["node_modules"],
     },
     output: {
-        filename: 'zenux_cursor.min.js',
+        filename: 'zenux_textual.min.js',
         path: path.resolve(__dirname, '../min'),
-        library: 'zenux_cursor'
+        library: 'zenux_textual'
     }
 };
