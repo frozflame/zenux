@@ -8,5 +8,5 @@
   },
   "author": "secular coder",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {"jquery": "^3.0.0"}
 }
