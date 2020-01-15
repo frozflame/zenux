@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* jshint esversion: 6 */
 
 /* globals require */
@@ -8,7 +10,7 @@
 
 const mjAPI = require("mathjax-node");
 
-// console.log(process.argv);
+console.log(process.argv);
 
 if (process.argv.length < 3) {
     require("./web").startWebApp(mjAPI, 8888);
