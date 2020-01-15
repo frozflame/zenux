@@ -9,14 +9,16 @@ var $ = require('jquery');
 
 
 function bodyToDiv(html){
+    "use strict";
     var bodyContent = /<body[^>]*>([\s\S]*?)<\/body>/im.exec(html)[1];
     var div = document.createElement('div');
     div.innerHTML = bodyContent;
-    return div
+    return div;
 }
 
 
 function HTMLEscaper() {
+    "use strict";
     var that = this;
     that.textarea = document.createElement('textarea');
     that.escape = function (html) {
@@ -34,6 +36,7 @@ function HTMLEscaper() {
 
 
 function createElement(name, attrs, children) {
+    "use strict";
     var elem = document.createElement(name);
     Object.entries(attrs).forEach(function (entry) {
         elem.setAttribute(entry[0], entry[1]);
@@ -46,6 +49,7 @@ function createElement(name, attrs, children) {
 
 
 function urlToElement(url, urlbase) {
+    "use strict";
     url = new URL(url, urlbase || window.location.href);
     if (/.*\.js$/.test(url.pathname)) {
         return createElement('script', {src: url.href, type: 'text/javascript'}, []);
@@ -61,6 +65,7 @@ function urlToElement(url, urlbase) {
 
 
 function pageToElements(html, urlbase, selector, attrname) {
+    "use strict";
     var anchors = $(html).find(selector || 'a').toArray();
     return anchors.map(function (anc) {
         // Notice: anchor.href is different from anchor.getAttribute('href')
