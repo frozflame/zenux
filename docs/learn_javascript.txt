@@ -32,6 +32,8 @@ npm version
     =: you accept that exact version
     -: you accept a range of versions. Example: 2.1.0 - 2.6.2
     ||: you combine sets. Example: < 2.1 || > 2.6
+    no symbol: you accept only that specific version you specify (1.2.1)
+    latest: you want to use the latest version available
 
 form:
     - <button type="button"> to prevent form submission
