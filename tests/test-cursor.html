@@ -6,22 +6,29 @@
 </head>
 <body>
 
-<div id="vapp">
+<div id="vapp" style="display: none">
     <h1>{{ cursor }}</h1>
     <button id="prev" :disabled="cursor.first()" v-on:click="cursor.prev()">Prev</button>
     <button id="next" :disabled="cursor.last()" v-on:click="cursor.next()">Next</button>
+    <hr>
+    <h1>{{ circular }}</h1>
+    <button v-on:click="circular.prev()">Prev</button>
+    <button v-on:click="circular.next()">Next</button>
+
 </div>
 
-<script src="http://localhost/local/js/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://localhost/static/lib/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="../min/zenux_cursor.min.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
         el: '#vapp',
         data: {
-            cursor: new zenux_cursor.Cursor(1, 5)
+            cursor: new zenux_cursor.Cursor(1, 8),
+            circular: new zenux_cursor.CircularCursor(1, 8)
         }
     });
+    $('#vapp').show();
 </script>
 </body>
 </html>

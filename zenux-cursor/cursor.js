@@ -16,44 +16,59 @@ function modulo(index, limit) {
 }
 
 
-function _initCursor(cursor, index, limit, check) {
+var _shared_prototype = {
+    check: confine,
+    valueOf: function () {
+        this._index = this.check(this._index, this._limit);
+        return this._index;
+    },
+    toString: function () {
+        return this.valueOf().toString();
+    },
+    prev: function () {
+        this._index--;
+        return this;
+    },
+    next: function () {
+        this._index++;
+        return this;
+    },
+    copy: function () {
+        return this.constructor(this._index, this._limit);
+    }
+};
+
+function _initCursor(cursor, index, limit) {
     cursor._index = index;
     cursor._limit = limit;
-    cursor.valueOf = function () {
-        cursor._index = check(cursor._index, cursor._limit);
-        return cursor._index;
-    };
-    cursor.toString = function () {
-        return cursor.valueOf().toString();
-    };
-    cursor.prev = function () {
-        cursor._index--;
-        return cursor;
-    };
-    cursor.next = function () {
-        cursor._index++;
-        return cursor;
-    };
-    cursor.copy = function () {
-        return Object.assign({}, cursor);
-    };
     return cursor;
 }
 
 function Cursor(index, limit) {
-    var cursor = _initCursor(this, index, limit, confine);
-    cursor.first = function () {
-        return cursor._index <= 0;
-    };
-    cursor.last = function () {
-        return cursor._index >= cursor._limit - 1;
-    };
+    _initCursor(this, index, limit);
 }
-
 
 function CircularCursor(index, limit) {
-    _initCursor(this, index, limit, modulo);
+    _initCursor(this, index, limit);
 }
+
+
+Cursor.prototype = {
+    first: function () {
+        return this._index <= 0;
+    },
+    last: function () {
+        return this._index >= this._limit - 1;
+    }
+};
+Object.setPrototypeOf(Cursor.prototype, _shared_prototype);
+
+
+CircularCursor.prototype = {
+    check: modulo
+};
+
+Object.setPrototypeOf(CircularCursor.prototype, _shared_prototype);
 
 
 exports.confine = confine;

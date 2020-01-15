@@ -32,3 +32,6 @@ npm version
     =: you accept that exact version
     -: you accept a range of versions. Example: 2.1.0 - 2.6.2
     ||: you combine sets. Example: < 2.1 || > 2.6
+
+form:
+    - <button type="button"> to prevent form submission
