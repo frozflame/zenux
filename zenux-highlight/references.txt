@@ -1,0 +1,20 @@
+
+javascript user selection highlighting
+    - https://stackoverflow.com/questions/304837/javascript-user-selection-highlighting
+
+Find all text nodes in HTML page
+    - https://stackoverflow.com/questions/10730309/find-all-text-nodes-in-html-page
+
+
+How do I select text nodes with jQuery?
+    - https://stackoverflow.com/questions/298750/how-do-i-select-text-nodes-with-jquery
+
+
+getElementsByTagName() equivalent for textNodes
+    - https://stackoverflow.com/questions/2579666/getelementsbytagname-equivalent-for-textnodes
+
+unique object identifier in javascript
+    - https://stackoverflow.com/questions/1997661/unique-object-identifier-in-javascript
+
+
+https://javascript.info/dom-navigation

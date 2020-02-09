@@ -17,6 +17,6 @@ module.exports = {
     },
     output: {
         filename: 'mathprint.min.js',
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '../min')
     }
 };
