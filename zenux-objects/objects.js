@@ -3,9 +3,7 @@
 /* jshint eqnull: true */
 /* globals require */
 /* globals exports */
-
 "use strict";
-
 
 /* mimic python dict.items() */
 function dict_items(obj) {
@@ -71,8 +69,61 @@ function str_slice(string, start, stop, step) {
     return list_slice(string.split(''), start, stop, step).join('');
 }
 
+function _is_null(obj) {
+    return [null, undefined].includes(obj);
+}
 
-function updateAllowedProps(target, source, allowedKeys) {
+
+if (typeof (String.prototype.trim) === "undefined") {
+    String.prototype.trim = function () {
+        return String(this).replace(/^\s+|\s+$/g, '');
+    };
+}
+
+function _lstrip(s, chars) {
+    let start = 0;
+    while (chars.indexOf(s[start]) >= 0) {
+        start += 1;
+    }
+    return s.substr(start);
+}
+
+
+function _rstrip(s, chars) {
+    let end = s.length - 1;
+    while (chars.indexOf(s[end]) >= 0) {
+        end -= 1;
+    }
+    return s.substr(0, end + 1);
+}
+
+
+// https://davidbieber.com/snippets/2020-12-26-pythons-strip-lstrip-and-rstrip-in-javascript/
+function str_strip(s, chars) {
+    if (_is_null(chars)) {
+        return s.trim();
+    }
+    return _rstrip(_lstrip(s, chars), chars);
+}
+
+
+function str_lstrip(s, chars) {
+    if (_is_null(chars)) {
+        return s.replace(/^\s+/gm, '');
+    }
+    return _lstrip(s, chars);
+}
+
+
+function str_rstrip(s, chars) {
+    if (_is_null(chars)) {
+        return s.replace(/\s+$/gm, '');
+    }
+    return _rstrip(s, chars);
+}
+
+
+function update_allowed_props(target, source, allowedKeys) {
     allowedKeys.map(function (key) {
         if (key in source) {
             target[key] = source[key];
@@ -81,7 +132,7 @@ function updateAllowedProps(target, source, allowedKeys) {
 }
 
 
-function updateMissingProps(target, source) {
+function update_missing_props(target, source) {
     Object.keys(source).map(function (key) {
         if (!(key in target)) {
             target[key] = source[key];
@@ -90,7 +141,7 @@ function updateMissingProps(target, source) {
 }
 
 
-function updateExistingProps(target, source) {
+function update_existing_props(target, source) {
     Object.keys(source).map(function (key) {
         if (key in target) {
             target[key] = source[key];
@@ -99,7 +150,7 @@ function updateExistingProps(target, source) {
 }
 
 
-function mergeProps(primary, secondary) {
+function merge_props(primary, secondary) {
     let ro = {};
     Object.assign(ro, secondary);
     Object.assign(ro, primary);
@@ -107,24 +158,29 @@ function mergeProps(primary, secondary) {
 }
 
 
-exports.updateAllowedProps = updateAllowedProps;
-exports.updateMissingProps = updateMissingProps;
-exports.updateExistingProps = updateExistingProps;
-exports.mergeProps = mergeProps;
+const updateAllowedProps = update_allowed_props;
+const updateMissingProps = update_missing_props;
+const updateExistingProps = update_existing_props;
+const mergeProps = merge_props;
 
-exports.update_allowed_props = updateAllowedProps;
-exports.update_missing_props = updateMissingProps;
-exports.update_existing_props = updateExistingProps;
-exports.merge_props = mergeProps;
-
-exports.dict_keys = dict_keys;
-exports.dict_values = dict_values;
-exports.dict_items = dict_items;
-exports.dict_get = dict_get;
-exports.zip = zip;
-
-exports.list_slice = list_slice;
-exports.str_slice = str_slice;
-exports.str_join = str_join;
-
-
+export {
+    update_allowed_props,
+    update_missing_props,
+    update_existing_props,
+    merge_props,
+    updateAllowedProps,
+    updateMissingProps,
+    updateExistingProps,
+    mergeProps,
+    dict_keys,
+    dict_values,
+    dict_items,
+    dict_get,
+    zip,
+    list_slice,
+    str_slice,
+    str_join,
+    str_strip,
+    str_lstrip,
+    str_rstrip,
+};
