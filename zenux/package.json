@@ -1,0 +1,12 @@
+{
+    "name": "zenux",
+    "version": "0.1.0",
+    "description": "python-style functions in javascript",
+    "main": "zenux.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "frozflame",
+    "license": "ISC",
+    "dependencies": {}
+}
