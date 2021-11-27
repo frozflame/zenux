@@ -1,12 +1,12 @@
 {
-  "name": "zenux-objects",
-  "version": "0.1.0",
-  "description": "convert data structures, featuring python equivolents",
-  "main": "objects.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "layman-coder",
-  "license": "ISC",
-  "dependencies": {}
+    "name": "zenux-objects",
+    "version": "0.1.0",
+    "description": "convert data structures, featuring python equivolents",
+    "main": "objects.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "frozflame",
+    "license": "ISC",
+    "dependencies": {}
 }
