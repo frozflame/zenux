@@ -4,6 +4,8 @@
 /* jshint eqnull: true */
 "use strict";
 
+// TODO: strptime()
+
 /**
  * @param {Date} date
  * @param {String} fmt

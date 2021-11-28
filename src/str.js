@@ -8,7 +8,7 @@
 
 
 import {slice as _list_slice} from "./list";
-import {_is_null} from "./base";
+import {is_null} from "./base";
 
 if (typeof (String.prototype.trim) === "undefined") {
     String.prototype.trim = function () {
@@ -149,7 +149,7 @@ function _rstrip(s, chars) {
  * @param {String} chars
  **/
 export function strip(s, chars) {
-    if (_is_null(chars)) {
+    if (is_null(chars)) {
         return s.trim();
     }
     return _rstrip(_lstrip(s, chars), chars);
@@ -160,7 +160,7 @@ export function strip(s, chars) {
  * @param {String} chars
  **/
 export function lstrip(s, chars) {
-    if (_is_null(chars)) {
+    if (is_null(chars)) {
         return s.replace(/^\s+/gm, '');
     }
     return _lstrip(s, chars);
@@ -171,7 +171,7 @@ export function lstrip(s, chars) {
  * @param {String} chars
  **/
 export function rstrip(s, chars) {
-    if (_is_null(chars)) {
+    if (is_null(chars)) {
         return s.replace(/\s+$/gm, '');
     }
     return _rstrip(s, chars);
@@ -226,3 +226,14 @@ export function endswith(string, suffix) {
 }
 
 // ref: https://davidbieber.com/snippets/2020-12-26-pythons-strip-lstrip-and-rstrip-in-javascript/
+
+export const ascii_lowercase = 'abcdefghijklmnopqrstuvwxyz';
+export const ascii_uppercase = ascii_lowercase.toUpperCase();
+export const ascii_letters = ascii_lowercase + ascii_uppercase;
+export const digits = '0123456789';
+export const octdigits = '01234567';
+export const hexdigits = '0123456789abcdefABCDEF';
+export const punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+export const whitespace = ' \t\n\r\v\f';
+export const printable = digits + ascii_letters + punctuation + whitespace;
+

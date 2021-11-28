@@ -4,7 +4,7 @@
 
 "use strict";
 
-export function _is_null(obj) {
+export function is_null(obj) {
     return [null, undefined].includes(obj);
 }
 
@@ -26,10 +26,10 @@ export function mod(a, n) {
  * @param {number} max
  */
 export function clamp(x, min, max) {
-    if (!_is_null(min) && x < min) {
+    if (!is_null(min) && x < min) {
         return min;
     }
-    if (!_is_null(max) && x > max) {
+    if (!is_null(max) && x > max) {
         return max;
     }
     return x;

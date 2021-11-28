@@ -3,22 +3,60 @@
 /* jshint eqnull: true */
 "use strict";
 
-import {mod, clamp} from "./src/base";
-import * as date from "./src/date";
-import * as dict from "./src/dict";
-import * as list from "./src/list";
-import * as str from "./src/str";
+import {mod, clamp, is_null} from "./src/base";
+import * as date_ from "./src/date";
+import * as dict_ from "./src/dict";
+import * as list_ from "./src/list";
+import * as str_ from "./src/str";
 
 
-function json_dumps(obj, indent){
-    return JSON.stringify(obj, undefined, indent);
+export const json = {
+    loads: JSON.parse,
+    /**
+     * @param {Object} obj
+     * @param {number} indent - an integer
+     */
+    dumps: function (obj, indent) {
+        return JSON.stringify(obj, undefined, indent);
+    }
+};
+
+
+/**
+ * @param {String} string
+ */
+export function date(string){
+    // TODO: use strptime
+    return new Date(string);
 }
 
-const json_loads = JSON.parse;
+export function dict(obj) {
+    return obj || {};
+}
 
+export function list(obj) {
+    if (obj instanceof String || typeof obj === 'string') {
+        return obj.split('');
+    }
+    return obj;
+}
 
+export function str(obj) {
+    return '' + obj;
+}
+
+export function int(value) {
+    return parseInt(value);
+}
+
+export function float(value) {
+    return parseFloat(value);
+}
+
+Object.assign(date, date_);
+Object.assign(dict, dict_);
+Object.assign(list, list_);
+Object.assign(str, str_);
 export {
-    mod, clamp,
-    list, dict, str, date,
-    json_dumps, json_loads,
+    mod, clamp, is_null,
 };
