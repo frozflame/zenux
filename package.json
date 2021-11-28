@@ -7,6 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "frozflame",
+    "url": "https://github.com/frozflame/zenux",
+    "email": "frozflame@outlook.com",
     "license": "ISC",
     "dependencies": {}
 }
