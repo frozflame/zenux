@@ -4,9 +4,8 @@
 "use strict";
 
 // https://stackoverflow.com/a/44145857/2925169
-import {mod} from "./base";
 
-function slice(array, start, stop, step) {
+export function slice(array, start, stop, step) {
     if (!step) {
         return array.slice(start, stop);
     }
@@ -18,32 +17,10 @@ function slice(array, start, stop, step) {
 }
 
 
-function repeat(array, n) {
+export function repeat(array, n) {
     return Array(n).fill(array).flat();
 }
 
 
-const zip = rows => rows[0].map((_, c) => rows.map(row => row[c]));
+export const zip = rows => rows[0].map((_, c) => rows.map(row => row[c]));
 
-function Cycle(array) {
-    this.array = array;
-    this.index = 0;
-}
-
-// itertools.cycle
-Cycle.prototype = {
-    next: function () {
-        if (!this.array) {
-            return null;
-        }
-        return this.array[mod(this.index++, this.array.length)];
-    }
-};
-
-
-export {
-    repeat,
-    slice,
-    zip,
-    Cycle,
-};

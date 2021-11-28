@@ -14,29 +14,69 @@ Object.values = Object.values || function (o) {
 
 
 /* mimic python dict.items() */
-function items(obj) {
+export function items(obj) {
     return Object.entries(obj);
 }
 
 /* mimic python dict.keys() */
-function keys(obj) {
+export function keys(obj) {
     return Object.keys(obj);
 }
 
 /* mimic python dict.values() */
-function values(obj) {
+export function values(obj) {
     return Object.values(obj);
 }
 
-function get(obj, key, fallback) {
+export function get(obj, key, default_) {
     let null_values = [null, undefined];
     if (null_values.includes(obj)) {
-        return fallback;
+        return default_;
     }
     let val = obj[key];
     if (null_values.includes(val)) {
-        return fallback;
+        return default_;
     }
 }
 
-export {get, keys, items, values};
+export function setdefault(obj, key, default_) {
+    let val = obj[key];
+    if (val === undefined) {
+        obj[key] = default_;
+        return default_;
+    }
+    return val;
+}
+
+export function pop(obj, key, default_) {
+    let val = obj[key];
+    if (val === undefined) {
+        return default_;
+    }
+    delete obj[key];
+    return val;
+}
+
+export function popitem(obj) {
+    let _keys = keys(obj);
+    if (!_keys) {
+        return undefined;
+    }
+    let key = _keys[0];
+    return [key, obj[key]];
+}
+
+export function fromkeys(keys, val) {
+    let obj = {};
+    if (val === undefined){
+        val = null;
+    }
+    keys.forEach(function (k) {
+        obj[k] = val;
+    });
+    return obj;
+}
+
+export function update(obj, other){
+    return Object.assign(obj, other);
+}

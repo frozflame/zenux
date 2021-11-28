@@ -4,7 +4,7 @@
 /* jshint eqnull: true */
 "use strict";
 
-function strftime(date, fmt) {
+export function strftime(date, fmt) {
     let nDay = date.getDay(),
         nDate = date.getDate(),
         nMonth = date.getMonth(),
@@ -69,9 +69,4 @@ function strftime(date, fmt) {
             '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1')
         }[sMatch] || '') + '') || sMatch;
     });
-}
-
-
-export {
-    strftime
 }
