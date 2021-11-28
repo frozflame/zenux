@@ -1,2 +1,0 @@
-consider using this in mathprint:
-    https://github.com/shakiba/svgexport
