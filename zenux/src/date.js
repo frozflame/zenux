@@ -4,6 +4,10 @@
 /* jshint eqnull: true */
 "use strict";
 
+/**
+ * @param {Date} date
+ * @param {String} fmt
+ */
 export function strftime(date, fmt) {
     let nDay = date.getDay(),
         nDate = date.getDate(),

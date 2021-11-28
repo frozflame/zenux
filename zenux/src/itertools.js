@@ -5,6 +5,9 @@
 
 import {mod} from "./base";
 
+/**
+ * @param {Array} array
+ */
 export function Cycle(array) {
     this.array = array;
     this.index = 0;

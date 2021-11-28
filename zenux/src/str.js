@@ -26,6 +26,7 @@ if (!String.prototype.startsWith) {
     });
 }
 
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith#polyfill
 if (!String.prototype.endsWith) {
     String.prototype.endsWith = function (search, this_len) {
@@ -69,19 +70,19 @@ if (!String.prototype.repeat) {
             throw new RangeError('repeat count must be non-negative');
         }
 
-        if (count === Infinity){
+        if (count === Infinity) {
             throw new RangeError('repeat count must be less than infinity');
         }
 
         count = Math.floor(count);
-        if (str.length === 0 || count === 0){
+        if (str.length === 0 || count === 0) {
             return '';
         }
 
         // Ensuring count is a 31-bit integer allows us to heavily optimize the
         // main part. But anyway, most current (August 2014) browsers can't handle
         // strings 1 << 28 chars or longer, so:
-        if (str.length * count >= 268435456){
+        if (str.length * count >= 268435456) {
             throw new RangeError('repeat count must not overflow maximum string size');
         }
 
@@ -96,11 +97,21 @@ if (!String.prototype.repeat) {
     };
 }
 
+/**
+ * @param {String} sep
+ * @param {Array} strings
+ */
 export function join(sep, strings) {
     return strings.join(sep);
 }
 
 
+/**
+ * @param {String} string
+ * @param {number} start - an integer
+ * @param {number} stop - an integer
+ * @param {number} step - an integer
+ **/
 export function slice(string, start, stop, step) {
     if (!step) {
         return string.slice(start, stop);
@@ -109,6 +120,10 @@ export function slice(string, start, stop, step) {
 }
 
 
+/**
+ * @param {String} s
+ * @param {String} chars
+ **/
 function _lstrip(s, chars) {
     let start = 0;
     while (chars.indexOf(s[start]) >= 0) {
@@ -117,6 +132,10 @@ function _lstrip(s, chars) {
     return s.substr(start);
 }
 
+/**
+ * @param {String} s
+ * @param {String} chars
+ **/
 function _rstrip(s, chars) {
     let end = s.length - 1;
     while (chars.indexOf(s[end]) >= 0) {
@@ -125,6 +144,10 @@ function _rstrip(s, chars) {
     return s.substr(0, end + 1);
 }
 
+/**
+ * @param {String} s
+ * @param {String} chars
+ **/
 export function strip(s, chars) {
     if (_is_null(chars)) {
         return s.trim();
@@ -132,6 +155,10 @@ export function strip(s, chars) {
     return _rstrip(_lstrip(s, chars), chars);
 }
 
+/**
+ * @param {String} s
+ * @param {String} chars
+ **/
 export function lstrip(s, chars) {
     if (_is_null(chars)) {
         return s.replace(/^\s+/gm, '');
@@ -139,6 +166,10 @@ export function lstrip(s, chars) {
     return _lstrip(s, chars);
 }
 
+/**
+ * @param {String} s
+ * @param {String} chars
+ **/
 export function rstrip(s, chars) {
     if (_is_null(chars)) {
         return s.replace(/\s+$/gm, '');
@@ -146,25 +177,52 @@ export function rstrip(s, chars) {
     return _rstrip(s, chars);
 }
 
+/**
+ * @param {String} s
+ * @param {number} n must be an integer
+ **/
 export function repeat(s, n) {
     return s.repeat(n);
 }
 
+/**
+ * @param {String} substring
+ * @param {String} string
+ **/
 export function in_(substring, string) {
     return string.includes(substring);
 }
 
+/**
+ * @param {String} s
+ **/
 export function lower(s) {
     return s.toLowerCase();
 }
 
+/**
+ * @param {String} s
+ **/
 export function upper(s) {
     return s.toUpperCase();
 }
 
-export function starts_with(string, prefix) {
-    return string.startsWith(prefix);
 
+/**
+ * @param {String} string
+ * @param {String} prefix
+ **/
+export function startswith(string, prefix) {
+    return string.startsWith(prefix);
+}
+
+
+/**
+ * @param {String} string
+ * @param {String} suffix
+ **/
+export function endswith(string, suffix) {
+    return string.endsWith(suffix);
 }
 
 // ref: https://davidbieber.com/snippets/2020-12-26-pythons-strip-lstrip-and-rstrip-in-javascript/

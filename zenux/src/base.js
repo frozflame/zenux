@@ -8,6 +8,10 @@ export function _is_null(obj) {
     return [null, undefined].includes(obj);
 }
 
+/**
+ * @param {number} a
+ * @param {number} n - an integer
+ */
 export function mod(a, n) {
     if (n < 0) {
         return -mod(a, -n);
@@ -16,11 +20,16 @@ export function mod(a, n) {
     return a < 0 ? a + n : a;
 }
 
+/**
+ * @param {number} x
+ * @param {number} min
+ * @param {number} max
+ */
 export function clamp(x, min, max) {
-    if (!_is_null(min) && x < min){
+    if (!_is_null(min) && x < min) {
         return min;
     }
-    if (!_is_null(max) && x > max){
+    if (!_is_null(max) && x > max) {
         return max;
     }
     return x;

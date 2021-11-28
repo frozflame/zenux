@@ -68,7 +68,7 @@ export function popitem(obj) {
 
 export function fromkeys(keys, val) {
     let obj = {};
-    if (val === undefined){
+    if (val === undefined) {
         val = null;
     }
     keys.forEach(function (k) {
@@ -77,6 +77,13 @@ export function fromkeys(keys, val) {
     return obj;
 }
 
-export function update(obj, other){
+export function update(obj, other) {
     return Object.assign(obj, other);
+}
+
+
+export function clear(obj) {
+    Object.keys(obj).forEach(key => {
+        delete obj[key];
+    });
 }

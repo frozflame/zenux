@@ -4,10 +4,10 @@
 "use strict";
 
 import {mod, clamp} from "./src/base";
-import * as list from "./src/list";
-import * as dict from "./src/dict";
-import * as str from "./src/str";
 import * as date from "./src/date";
+import * as dict from "./src/dict";
+import * as list from "./src/list";
+import * as str from "./src/str";
 
 
 function json_dumps(obj, indent){
