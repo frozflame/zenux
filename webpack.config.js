@@ -9,7 +9,7 @@ module.exports = {
         modules: ["node_modules"]
     },
     output: {
-        filename: '../dist/zenux.min.js',
+        filename: 'dist/zenux.min.js',
         path: __dirname,
         library: {
             name: 'zenux',
