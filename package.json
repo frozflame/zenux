@@ -1,7 +1,7 @@
 {
     "name": "zenux",
     "version": "0.1.0",
-    "description": "Python-style functions in JavaScript",
+    "description": "JavaScript functions in Python-style",
     "main": "zenux.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
