@@ -7,6 +7,7 @@ import {mod, clamp, is_null} from "./src/base";
 import * as date_ from "./src/date";
 import * as dict_ from "./src/dict";
 import * as list_ from "./src/list";
+import * as set_ from "./src/set";
 import * as str_ from "./src/str";
 
 
@@ -25,7 +26,7 @@ export const json = {
 /**
  * @param {String} string
  */
-export function date(string){
+export function date(string) {
     // TODO: use strptime
     return new Date(string);
 }
@@ -39,6 +40,10 @@ export function list(obj) {
         return obj.split('');
     }
     return obj;
+}
+
+export function set(obj) {
+    return new Set(obj);
 }
 
 export function str(obj) {
@@ -56,6 +61,7 @@ export function float(value) {
 Object.assign(date, date_);
 Object.assign(dict, dict_);
 Object.assign(list, list_);
+Object.assign(set, set_);
 Object.assign(str, str_);
 export {
     mod, clamp, is_null,
