@@ -35,9 +35,41 @@ export function dict(obj) {
     return obj || {};
 }
 
+
+/**
+ * @return {boolean}
+ */
+export function is_iterable(obj) {
+    // checks for null and undefined
+    if (is_null(obj)) {
+        return false;
+    }
+    return typeof obj[Symbol.iterator] === 'function';
+}
+
+function _is_htmlcollection_or_nodelist(obj) {
+    // https://stackoverflow.com/a/222847/2925169
+    // https://stackoverflow.com/a/36857902/2925169
+    return (
+        HTMLCollection && HTMLCollection.prototype.isPrototypeOf(obj)
+    ) || (
+        NodeList && NodeList.prototype.isPrototypeOf(obj)
+    );
+}
+
 export function list(obj) {
     if (obj instanceof String || typeof obj === 'string') {
         return obj.split('');
+    }
+    // https://stackoverflow.com/a/222847/2925169
+    // https://stackoverflow.com/a/36857902/2925169
+    if (_is_htmlcollection_or_nodelist(obj)) {
+        // return Array.prototype.slice.call(obj);
+        return [...obj];
+    }
+    // https://stackoverflow.com/a/222847/2925169
+    if (is_iterable(obj)) {
+        return [...obj];
     }
     return obj;
 }
@@ -56,6 +88,13 @@ export function int(value) {
 
 export function float(value) {
     return parseFloat(value);
+}
+
+export function _pollute() {
+    if (!window || !window.zenux) {
+        return;
+    }
+    Object.assign(window, window.zenux);
 }
 
 Object.assign(date, date_);
