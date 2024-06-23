@@ -1,14 +1,35 @@
 {
     "name": "zenux",
-    "version": "0.1.0",
-    "description": "JavaScript functions in Python-style",
-    "main": "zenux.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "version": "0.2.0",
+    "description": "utility functions",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/index.d.ts",
     "author": "frozflame",
     "url": "https://github.com/frozflame/zenux",
     "email": "frozflame@outlook.com",
     "license": "ISC",
-    "dependencies": {}
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@types/node": "^20.12.13"
+    },
+    "devDependencies": {
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^11.1.6",
+        "rollup-plugin-dts": "^6.1.1",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "tslib": "^2.6.3"
+    },
+    "scripts": {
+        "rollup": "rollup -c --bundleConfigAsCjs",
+        "r": "rollup -c --bundleConfigAsCjs",
+        "build": "rollup -c --bundleConfigAsCjs",
+        "bundle": "rollup -c --bundleConfigAsCjs",
+        "dist": "rollup -c --bundleConfigAsCjs; npm pack; mv -f zenux-*.*.*.tgz /data/setup/js"
+    }
 }

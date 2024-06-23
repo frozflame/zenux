@@ -1,16 +1,7 @@
 /* Adapted from strftime() by T. H. Doan (https://thdoan.github.io/strftime/) */
-/* jshint esversion: 6 */
-/* jshint node: true */
-/* jshint eqnull: true */
-"use strict";
-
 // TODO: strptime()
 
-/**
- * @param {Date} date
- * @param {String} fmt
- */
-export function strftime(date, fmt) {
+export function strftime(date: Date, fmt: string): string {
     let nDay = date.getDay(),
         nDate = date.getDate(),
         nMonth = date.getMonth(),
@@ -27,7 +18,7 @@ export function strftime(date, fmt) {
             target.setDate(nDate - ((nDay + 6) % 7) + 3);
             return target;
         },
-        zeroPad = function (nNum, nPad) {
+        zeroPad = function (nNum: number, nPad: number): string {
             return ((Math.pow(10, nPad) + nNum) + '').slice(1);
         };
     return fmt.replace(/%[a-z]/gi, function (sMatch) {
@@ -57,14 +48,14 @@ export function strftime(date, fmt) {
             '%S': zeroPad(date.getSeconds(), 2),
             '%u': nDay || 7,
             '%V': (function () {
-                let target = getThursday(),
-                    n1stThu = target.valueOf();
+                let target = getThursday();
+                let n1stThu = target.valueOf();
                 target.setMonth(0, 1);
                 let nJan1 = target.getDay();
                 if (nJan1 !== 4) {
                     target.setMonth(0, 1 + ((4 - nJan1) + 7) % 7);
                 }
-                return zeroPad(1 + Math.ceil((n1stThu - target) / 604800000), 2);
+                return zeroPad(1 + Math.ceil((n1stThu - target.valueOf()) / 604800000), 2);
             })(),
             '%w': nDay,
             '%x': date.toLocaleDateString(),
