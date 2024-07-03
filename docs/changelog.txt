@@ -1,0 +1,6 @@
+changelog
+---------
+
+ver 0.2.1
+* export sleep(), SizedQueue, allIdentical()
+* add inferFetchOptions(), encodeURL(), removePrefix()

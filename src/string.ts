@@ -8,3 +8,10 @@ export const hexdigits = '0123456789abcdefABCDEF';
 export const punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 export const whitespace = ' \t\n\r\v\f';
 export const printable = digits + ascii_letters + punctuation + whitespace;
+
+export function removePrefix(s: string, prefix: string) {
+    if (!s.startsWith(prefix)) {
+        return s;
+    }
+    return s.slice(prefix.length);
+}

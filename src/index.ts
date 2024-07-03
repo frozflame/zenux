@@ -1,4 +1,5 @@
 import {patch} from "./polyfills";
+
 patch();
 
 
@@ -48,9 +49,11 @@ export function range(...args: number[]) {
 }
 
 
+export * as containers from "./containers";
+export * as itertools from "./itertools";
 export * as pythonish from "./pythonish";
+export * as requests from "./requests";
 export * as string from "./string";
 export * as set from "./set";
-export * as itertools from "./itertools";
 export * as timers from "./timers";
 export {strftime} from "./strftime";
