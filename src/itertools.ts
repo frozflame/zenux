@@ -1,4 +1,4 @@
-function mod(a: number, n: number) {
+export function mod(a: number, n: number) {
     if (n < 0) {
         return -mod(a, -n);
     }

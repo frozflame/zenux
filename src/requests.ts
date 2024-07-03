@@ -1,4 +1,4 @@
-import {removePrefix} from "./string";
+import {removePrefix} from "./str";
 
 
 export function encodeURL(url?: string): string {

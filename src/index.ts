@@ -49,11 +49,12 @@ export function range(...args: number[]) {
 }
 
 
-export * as containers from "./containers";
-export * as itertools from "./itertools";
 export * as pythonish from "./pythonish";
-export * as requests from "./requests";
 export * as string from "./string";
-export * as set from "./set";
-export * as timers from "./timers";
+export {allIdentical, SizedQueue} from "./containers";
+export {mod, cycle} from "./itertools";
+export {encodeURL, inferFetchOptions} from "./requests";
+export {union, intersection, difference} from "./set";
+export {sleep, untilFalse, untilTrue, untilInvariant} from "./timers";
 export {strftime} from "./strftime";
+export {removePrefix} from "./str";

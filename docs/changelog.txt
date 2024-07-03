@@ -1,6 +1,9 @@
 changelog
 ---------
 
+ver 0.3.0
+* expose functions and classes in index.ts
+
 ver 0.2.1
 * export sleep(), SizedQueue, allIdentical()
 * add inferFetchOptions(), encodeURL(), removePrefix()
