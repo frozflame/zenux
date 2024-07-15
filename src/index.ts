@@ -58,3 +58,4 @@ export {union, intersection, difference} from "./set";
 export {sleep, untilFalse, untilTrue, untilInvariant} from "./timers";
 export {strftime} from "./strftime";
 export {removePrefix} from "./str";
+export {paginate1, joinClassNames, dedup} from "./misc";

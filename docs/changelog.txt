@@ -1,6 +1,9 @@
 changelog
 ---------
 
+ver 0.3.1
+* add paginate1(), joinClassNames(), dedup()
+
 ver 0.3.0
 * expose functions and classes in index.ts
 
